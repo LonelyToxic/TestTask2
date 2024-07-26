@@ -118,7 +118,7 @@ class UserEditWindow(BaseEditWindow):
             name='date_joined',
             allow_blank=False,
             anchor='100%',
-            format='d.m.Y')  # Установить формат даты
+            format='d.m.Y')  
 
     def _do_layout(self):
         super(UserEditWindow, self)._do_layout()
