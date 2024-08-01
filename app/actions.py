@@ -20,9 +20,9 @@ class PermissionEditWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%')
 
-        elf.field__content_type = ext.ExtDictSelectField(
+        self.field__content_type = ext.ExtDictSelectField(
             label='Content Type',
-            name='content_type_id',  # Здесь указываем content_type_id
+            name='content_type_id',
             allow_blank=False,
             pack=ContentTypePack,
         )
@@ -49,15 +49,6 @@ class PermissionPack(ObjectPack):
     model = Permission
     add_to_desktop = True
     add_window = edit_window = PermissionEditWindow
-
-    def save_row(self, obj, create_new, request, context):
-        obj.name = request.POST.get('name')
-        content_type_id = request.POST.get('ContentType')
-        if content_type_id:
-            obj.content_type = ContentType.objects.get(pk=content_type_id)
-        obj.codename = request.POST.get('codename')
-        obj.save()
-        return obj
 
 class GroupPack(ObjectPack):
     model = Group
