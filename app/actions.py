@@ -22,7 +22,7 @@ class PermissionEditWindow(BaseEditWindow):
 
         self.field__content_type = ext.ExtDictSelectField(
             label='Content Type',
-            name='content_type_id',  # Здесь указываем content_type_id
+            name='content_type_id',
             allow_blank=False,
             pack=ContentTypePack,
         )
