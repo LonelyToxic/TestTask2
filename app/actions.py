@@ -1,5 +1,5 @@
 from objectpack.actions import ObjectPack
-from objectpack.ui import ModelEditWindow, BaseEditWindow, make_combo_box
+from objectpack.ui import ModelEditWindow, BaseEditWindow, make_combo_box, ComboBoxWithStore
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import Permission, Group, User
 from m3_ext.ui import all_components as ext
@@ -22,7 +22,7 @@ class PermissionEditWindow(BaseEditWindow):
 
         self.field__content_type = ext.ExtDictSelectField(
             label='Content Type',
-            name='content_type_id',
+            name='content_type_id',  # Здесь указываем content_type_id
             allow_blank=False,
             pack=ContentTypePack,
         )
@@ -133,4 +133,3 @@ class UserPack(ObjectPack):
     model = User
     add_to_desktop = True
     add_window = edit_window = UserEditWindow
-
