@@ -20,12 +20,12 @@ class PermissionEditWindow(BaseEditWindow):
             allow_blank=False,
             anchor='100%')
 
-        self.field__content_type = make_combo_box(
+        elf.field__content_type = ext.ExtDictSelectField(
             label='Content Type',
-            name='ContentType',
+            name='content_type_id',  # Здесь указываем content_type_id
             allow_blank=False,
-            anchor='100%',
-            data=[(ct.id, ct.model) for ct in ContentType.objects.all()])
+            pack=ContentTypePack,
+        )
 
         self.field__codename = ext.ExtStringField(
             label='Codename',
